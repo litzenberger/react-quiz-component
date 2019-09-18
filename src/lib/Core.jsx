@@ -386,12 +386,6 @@ class Core extends Component {
 
     return (
       <div className="tag-container">
-        {
-          answerSelectionType == 'single' && <span className="single selection-tag"> { singleSelectionTagText }</span>
-        }
-        {
-          answerSelectionType == 'multiple' && <span className="multiple selection-tag"> { multipleSelectionTagText }</span>
-        }
         <span className="number-of-selection">{ pickNumberOfSelection.replace("<numberOfSelection>", numberOfSelection) }</span>
       </div>
       )
