@@ -445,7 +445,8 @@ class Core extends Component {
         {!endQuiz &&
           <div className="questionWrapperBody">
             <div className="questionModal">
-              { showInstantFeedback && 
+              {     (correctAnswer ||
+      incorrectAnswer) && showInstantFeedback && 
                 <div className="alert correct">
                   { this.renderMessageforCorrectAnswer(question) } 
                   { this.renderExplanation(question, false) }
