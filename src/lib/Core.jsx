@@ -229,7 +229,8 @@ class Core extends Component {
 
   renderMessageforCorrectAnswer = (question) => {
     const defaultMessage = 'You are correct. Please click Next to continue.';
-    return question.messageForCorrectAnswer || defaultMessage;
+
+    return <h3 dangerouslySetInnerHTML={this.rawMarkup(question.imageAfter)}/> || defaultMessage;
   }
 
   renderMessageforIncorrectAnswer = (question) => {
@@ -378,8 +379,6 @@ class Core extends Component {
   renderTags(answerSelectionType, numberOfSelection) {
     const { 
       appLocale: {
-        singleSelectionTagText,
-        multipleSelectionTagText,
         pickNumberOfSelection
       } 
     } = this.props;
@@ -446,10 +445,7 @@ class Core extends Component {
         {!endQuiz &&
           <div className="questionWrapperBody">
             <div className="questionModal">
-              {incorrectAnswer && showInstantFeedback && 
-                <div className="alert incorrect">{ this.renderMessageforIncorrectAnswer(question) }</div>
-              }
-              { correctAnswer && showInstantFeedback && 
+              { showInstantFeedback && 
                 <div className="alert correct">
                   { this.renderMessageforCorrectAnswer(question) } 
                   { this.renderExplanation(question, false) }
@@ -464,6 +460,7 @@ class Core extends Component {
             {
               this.renderAnswers(question, buttons)
             }
+            <h3 dangerouslySetInnerHTML={this.rawMarkup(question.imageBefore)}/> 
             { showNextQuestionButton &&
               <div><button onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{appLocale.nextQuestionBtn}</button></div>
             }
