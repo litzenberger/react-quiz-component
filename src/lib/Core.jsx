@@ -467,7 +467,7 @@ class Core extends Component {
             {
               this.renderAnswers(question, buttons)
             }
-            {this.renderMessageforCorrectAnswer(question.imageBefore) } 
+           
             {
               this.renderImage()
             }
