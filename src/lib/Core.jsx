@@ -402,7 +402,7 @@ class Core extends Component {
     const style = {
       animation: animations.popIn
     }
-    return <h3 style={style} dangerouslySetInnerHTML={this.rawMarkup(this.state.image)}/> 
+    return <div style={style}><h3  dangerouslySetInnerHTML={this.rawMarkup(this.state.image)}/></div>
   }
 
   render() {
