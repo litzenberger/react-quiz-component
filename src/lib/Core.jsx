@@ -391,6 +391,11 @@ class Core extends Component {
       )
   }
 
+  renderImage(){
+
+    return <h3>this.state.image</h3>
+  }
+
   render() {
     const { questions, appLocale } = this.props;
     const { 
@@ -463,8 +468,9 @@ class Core extends Component {
               this.renderAnswers(question, buttons)
             }
             {this.renderMessageforCorrectAnswer(question.imageBefore) } 
-
-            <h3 dangerouslySetInnerHTML={this.state.image}/> 
+            {
+              this.renderImage()
+            }
             { showNextQuestionButton &&
               <div><button onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{appLocale.nextQuestionBtn}</button></div>
             }
