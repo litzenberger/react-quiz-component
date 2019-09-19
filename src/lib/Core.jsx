@@ -216,7 +216,7 @@ class Core extends Component {
       image:questions[currentQuestionIndex].imageBefore
     }
 
-    if(currentQuestionIndex + 1 == questions.length) {
+    if(currentQuestionIndex + 1 === questions.length) {
       this.setState({
         ...initState,
         endQuiz: true
@@ -225,7 +225,7 @@ class Core extends Component {
       this.setState({
         ...initState,
         currentQuestionIndex: currentQuestionIndex + 1,
-        image: questions[currentQuestionIndex].imageBefore
+        image: questions[currentQuestionIndex +1].imageBefore
       })
     }
   }
@@ -395,7 +395,6 @@ class Core extends Component {
   }
 
   renderImage(){
-
     return <h3 dangerouslySetInnerHTML={this.rawMarkup(this.state.image)}/> 
   }
 
@@ -472,6 +471,9 @@ class Core extends Component {
             }
            
             {
+              this.renderMessageforCorrectAnswer(question.imageBefore) 
+              }
+              {
               this.renderImage()
             }
             { showNextQuestionButton &&
