@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import marked from 'marked';
+import { animations } from 'react-animation';
 
 class Core extends Component {
   constructor(props){
@@ -26,7 +27,6 @@ class Core extends Component {
       continueTillCorrect: this.props.continueTillCorrect != undefined ? this.props.continueTillCorrect : false
     };
   }
-
   checkAnswer = (index, correctAnswer, answerSelectionType, image) => {
     console.log(image)
     this.renderMessageforCorrectAnswer(image) 
@@ -399,7 +399,10 @@ class Core extends Component {
   }
 
   renderImage(){
-    return <h3 dangerouslySetInnerHTML={this.rawMarkup(this.state.image)}/> 
+    const style = {
+      animation: animations.popIn
+    }
+    return <h3 style={style} dangerouslySetInnerHTML={this.rawMarkup(this.state.image)}/> 
   }
 
   render() {
@@ -456,13 +459,6 @@ class Core extends Component {
       <div className="questionWrapper">
         {!endQuiz &&
           <div className="questionWrapperBody">
-            <div className="questionModal">
-              {     (correctAnswer ||
-      incorrectAnswer) && showInstantFeedback && 
-                <div className="alert correct">
-                </div>
-              }
-            </div>
             <div>{ appLocale.question } { currentQuestionIndex + 1 }:</div>
             <h3 dangerouslySetInnerHTML={this.rawMarkup(question.question)}/> 
             {
