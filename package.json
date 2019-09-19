@@ -1,6 +1,6 @@
 {
   "name": "react-quiz-component",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "React Quiz Component",
   "main": "lib/Quiz.js",
   "scripts": {
@@ -41,12 +41,20 @@
     "webpack-dev-server": "^3.1.14"
   },
   "author": "WONG, Wing Kam <wingkwong.code@gmail.com>",
+  "contributors": [
+    {
+      "name": "Ron Litzenberger",
+      "email": "ron.litzenberger@gmail.com",
+      "url": "https://github.com/litzenberger"
+    }
+  ],
   "homepage": "https://github.com/litzenberger/react-quiz-component",
   "repository": {
     "type": "git",
     "url": "https://github.com/litzenberger/react-quiz-component.git"
   },
   "dependencies": {
-    "marked": "^0.7.0"
+    "marked": "^0.7.0",
+    "react-animation": "^1.2.0"
   }
 }

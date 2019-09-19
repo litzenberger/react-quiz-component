@@ -6,6 +6,7 @@ class Core extends Component {
   constructor(props){
     super(props);
     this.state = {
+      image: "",
       incorrectAnswer: false,
       correctAnswer: false,
       showNextQuestionButton: false,
@@ -227,10 +228,10 @@ class Core extends Component {
     }
   }
 
-  renderMessageforCorrectAnswer = (question) => {
+  renderMessageforCorrectAnswer = (image) => {
     const defaultMessage = 'You are correct. Please click Next to continue.';
-
-    return <h3 dangerouslySetInnerHTML={this.rawMarkup(question.imageAfter)}/> || defaultMessage;
+    this.setState({image: `<h3 dangerouslySetInnerHTML=${this.rawMarkup(image)}/> || ${defaultMessage};`})
+    return 
   }
 
   renderMessageforIncorrectAnswer = (question) => {
@@ -448,7 +449,7 @@ class Core extends Component {
               {     (correctAnswer ||
       incorrectAnswer) && showInstantFeedback && 
                 <div className="alert correct">
-                  { this.renderMessageforCorrectAnswer(question) } 
+                  { this.renderMessageforCorrectAnswer(question.imageAfter) } 
                   { this.renderExplanation(question, false) }
                 </div>
               }
@@ -461,7 +462,9 @@ class Core extends Component {
             {
               this.renderAnswers(question, buttons)
             }
-            <h3 dangerouslySetInnerHTML={this.rawMarkup(question.imageBefore)}/> 
+            {this.renderMessageforCorrectAnswer(question.imageBefore) } 
+
+            <h3 dangerouslySetInnerHTML={this.state.image}/> 
             { showNextQuestionButton &&
               <div><button onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{appLocale.nextQuestionBtn}</button></div>
             }
