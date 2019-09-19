@@ -230,7 +230,7 @@ class Core extends Component {
 
   renderMessageforCorrectAnswer = (image) => {
     const defaultMessage = 'You are correct. Please click Next to continue.';
-    this.setState({image: `<h3 dangerouslySetInnerHTML=${this.rawMarkup(image)}/> || ${defaultMessage};`})
+    this.setState({image: `${image}/> || ${defaultMessage};`})
     return 
   }
 
@@ -393,7 +393,7 @@ class Core extends Component {
 
   renderImage(){
 
-    return <h3>this.state.image</h3>
+    return <h3 dangerouslySetInnerHTML={this.rawMarkup(this.state.image)}/> 
   }
 
   render() {
