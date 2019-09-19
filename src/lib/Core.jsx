@@ -403,7 +403,7 @@ class Core extends Component {
     const style = {
       animation: animations.popIn
     }
-    return <HideUntilLoaded animationIn="bounceIn" imageToLoad={this.state.image}/>
+  return <HideUntilLoaded animationIn="bounceIn" imageToLoad={this.state.image} Spinner={() => <div>Loading...</div>}/>
   }
 
   render() {
