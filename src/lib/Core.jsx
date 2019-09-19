@@ -213,6 +213,7 @@ class Core extends Component {
       correctAnswer: false,
       showNextQuestionButton: false,
       buttons: {},
+      image:questions[currentQuestionIndex].imageBefore
     }
 
     if(currentQuestionIndex + 1 == questions.length) {
@@ -224,6 +225,7 @@ class Core extends Component {
       this.setState({
         ...initState,
         currentQuestionIndex: currentQuestionIndex + 1,
+        image: questions[currentQuestionIndex].imageBefore
       })
     }
   }
