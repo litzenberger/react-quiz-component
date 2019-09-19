@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import marked from 'marked';
 import { animations } from 'react-animation';
+import { HideUntilLoaded } from 'react-animation'
 
 class Core extends Component {
   constructor(props){
@@ -402,7 +403,7 @@ class Core extends Component {
     const style = {
       animation: animations.popIn
     }
-    return <div style={style}><h3  dangerouslySetInnerHTML={this.rawMarkup(this.state.image)}/></div>
+    return <HideUntilLoaded animationIn="bounceIn" imageToLoad={this.rawMarkup(this.state.image)}/>
   }
 
   render() {
