@@ -466,6 +466,9 @@ class Core extends Component {
             {
               this.renderTags(answerSelectionType, question.correctAnswer.length)
             }
+            { showNextQuestionButton &&
+              <div><button onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{appLocale.nextQuestionBtn}</button></div>
+            }
             {
               this.renderAnswers(question, buttons)
             }
@@ -477,9 +480,7 @@ class Core extends Component {
               {
               this.renderImage()
             }
-            { showNextQuestionButton &&
-              <div><button onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{appLocale.nextQuestionBtn}</button></div>
-            }
+
           </div>
         }
         { endQuiz && showDefaultResult && customResultPage == null &&
