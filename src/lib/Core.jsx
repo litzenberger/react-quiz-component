@@ -229,8 +229,9 @@ class Core extends Component {
   }
 
   renderMessageforCorrectAnswer = (image) => {
-    const defaultMessage = 'You are correct. Please click Next to continue.';
-    this.setState({image: `${image} || ${defaultMessage}`})
+    if (this.state.image !== image){
+    this.setState({image: `${image}`})
+    }
     return 
   }
 
