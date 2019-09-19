@@ -235,6 +235,7 @@ class Core extends Component {
   renderMessageforCorrectAnswer = (image) => {
     if (this.state.image !== image){
       console.log("test")
+      console.log(image)
     this.setState({image: `${image}`})
     }
     return 
