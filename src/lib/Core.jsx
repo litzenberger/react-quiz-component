@@ -27,7 +27,8 @@ class Core extends Component {
     };
   }
 
-  checkAnswer = (index, correctAnswer, answerSelectionType) => {
+  checkAnswer = (index, correctAnswer, answerSelectionType, image) => {
+    this.renderMessageforCorrectAnswer(image) 
     const { correct, incorrect, currentQuestionIndex, continueTillCorrect, userInput } = this.state;
     let { userAttempt, showNextQuestionButton } = this.state;
 
@@ -225,13 +226,14 @@ class Core extends Component {
       this.setState({
         ...initState,
         currentQuestionIndex: currentQuestionIndex + 1,
-        image: questions[currentQuestionIndex +1].imageBefore
+        image: questions[currentQuestionIndex + 1].imageBefore
       })
     }
   }
 
   renderMessageforCorrectAnswer = (image) => {
     if (this.state.image !== image){
+      console.log("test")
     this.setState({image: `${image}`})
     }
     return 
@@ -371,7 +373,7 @@ class Core extends Component {
         )
       } else {
         return (
-          <button key={index} onClick={() => this.checkAnswer(index+1, correctAnswer, answerSelectionType)} className="answerBtn btn">
+          <button key={index} onClick={() => this.checkAnswer(index+1, correctAnswer, answerSelectionType, question.imageAfter)} className="answerBtn btn">
           { questionType == 'text' && answer }
           { questionType == 'photo' && <img src={answer}/> }
           </button>
@@ -456,8 +458,6 @@ class Core extends Component {
               {     (correctAnswer ||
       incorrectAnswer) && showInstantFeedback && 
                 <div className="alert correct">
-                  { this.renderMessageforCorrectAnswer(question.imageAfter) } 
-                  { this.renderExplanation(question, false) }
                 </div>
               }
             </div>
