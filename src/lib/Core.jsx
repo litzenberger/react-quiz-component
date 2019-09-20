@@ -388,21 +388,27 @@ class Core extends Component {
   renderTags(answerSelectionType, numberOfSelection) {
     const { 
       appLocale: {
-        pickNumberOfSelection
-      } 
+        pickNumberOfSelection,
+        nextQuestionBtn
+      }
     } = this.props;
+    const { 
+    currentQuestionIndex, 
+    showNextQuestionButton, 
+
+  } = this.state;
 
     return (
       <div className="tag-container">
         <span className="number-of-selection">{ pickNumberOfSelection.replace("<numberOfSelection>", numberOfSelection) }</span>
+        { showNextQuestionButton &&
+              <button onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{nextQuestionBtn}</button>
+            }
       </div>
       )
   }
 
   renderImage(){
-    const style = {
-      animation: animations.popIn
-    }
   return <HideUntilLoaded animationIn="bounceIn" imageToLoad={this.state.image} Spinner={() => <div>Loading...</div>}>
     <img src={this.state.image} alt=""/></HideUntilLoaded>
   }
@@ -466,9 +472,7 @@ class Core extends Component {
             {
               this.renderTags(answerSelectionType, question.correctAnswer.length)
             }
-            { showNextQuestionButton &&
-              <div><button onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{appLocale.nextQuestionBtn}</button></div>
-            }
+
             {
               this.renderAnswers(question, buttons)
             }
