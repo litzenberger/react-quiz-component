@@ -28,12 +28,15 @@
 .react-quiz-container .questionWrapper .btn {
   margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 4px;
   border: 1px solid #e8e8e8;;
   font-size: 15px;
   display: block;
   white-space: normal;
   text-align: unset;
+  padding: 7px;
+  border-radius: 5px;
+  background: #673AB7;
+  display: "inline-block"
 }
 
 .react-quiz-container .questionWrapper .btn.correct {
