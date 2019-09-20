@@ -400,7 +400,10 @@ class Core extends Component {
 
     return (
       <div className="tag-container">
+
+        {!showNextQuestionButton &&
         <span className="number-of-selection">{ pickNumberOfSelection.replace("<numberOfSelection>", numberOfSelection) }</span>
+        }
         { showNextQuestionButton &&
               <button  style={{display: "inline-block", marginBottom:"0px"}} onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{nextQuestionBtn}</button>
         }
