@@ -403,7 +403,7 @@ class Core extends Component {
         <span className="number-of-selection">{ pickNumberOfSelection.replace("<numberOfSelection>", numberOfSelection) }</span>
         { showNextQuestionButton &&
           <div style={{display: "inline-block"}}>
-            <div style={{minWidth:10}}></div>
+            <div style={{minWidth:10,display: "inline-block"}}></div>
               <button  onClick={() => this.nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn">{nextQuestionBtn}</button>
             
             </div>
