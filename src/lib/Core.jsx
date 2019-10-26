@@ -9,6 +9,7 @@ class Core extends Component {
     super(props);
     this.state = {
       image: "",
+      imageText: "",
       incorrectAnswer: false,
       correctAnswer: false,
       showNextQuestionButton: false,
@@ -28,9 +29,10 @@ class Core extends Component {
       continueTillCorrect: this.props.continueTillCorrect != undefined ? this.props.continueTillCorrect : false
     };
   }
-  checkAnswer = (index, correctAnswer, answerSelectionType, image) => {
+  checkAnswer = (index, correctAnswer, answerSelectionType, question) => {
     console.log(image)
-    this.renderMessageforCorrectAnswer(image) 
+    this.renderMessageforCorrectAnswer(question.imageAfter)
+    this.renderTextforCorrectAnswer(question.extAfter)  
     const { correct, incorrect, currentQuestionIndex, continueTillCorrect, userInput } = this.state;
     let { userAttempt, showNextQuestionButton } = this.state;
 
@@ -233,11 +235,12 @@ class Core extends Component {
     }
   }
 
-  renderMessageforCorrectAnswer = (image) => {
+  renderMessageforCorrectAnswer = (image, text) => {
     if (this.state.image !== image){
       console.log("test")
       console.log(image)
     this.setState({image: `${image}`})
+    this.setState({imageText: `${text}`})
     }
     return 
   }
@@ -376,7 +379,7 @@ class Core extends Component {
         )
       } else {
         return (
-          <button key={index} onClick={() => this.checkAnswer(index+1, correctAnswer, answerSelectionType, question.imageAfter)} className="answerBtn btn">
+          <button key={index} onClick={() => this.checkAnswer(index+1, correctAnswer, answerSelectionType, question)} className="answerBtn btn">
           { questionType == 'text' && answer }
           { questionType == 'photo' && <img src={answer}/> }
           </button>
@@ -415,6 +418,10 @@ class Core extends Component {
   return <HideUntilLoaded animationIn="bounceIn" imageToLoad={this.state.image} Spinner={() => <div>Loading...</div>}>
     <img src={this.state.image} alt=""/></HideUntilLoaded>
   }
+  renderImageText(){
+    let rawMarkup = marked(this.state.imageText, {sanitize: true});
+    return { __html: rawMarkup };
+    }
 
   render() {
     const { questions, appLocale } = this.props;
@@ -485,7 +492,8 @@ class Core extends Component {
               this.renderMessageforCorrectAnswer(question.imageBefore) 
               }
               {
-              this.renderImage()
+              this.renderImage() &&
+              this.renderText()
             }
 
           </div>
