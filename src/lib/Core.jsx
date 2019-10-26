@@ -218,7 +218,8 @@ class Core extends Component {
       correctAnswer: false,
       showNextQuestionButton: false,
       buttons: {},
-      image:questions[currentQuestionIndex].imageBefore
+      image:questions[currentQuestionIndex].imageBefore,
+      imageText:questions[currentQuestionIndex].imageTextBefore
     }
 
     if(currentQuestionIndex + 1 === questions.length) {
