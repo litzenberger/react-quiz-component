@@ -230,7 +230,8 @@ class Core extends Component {
       this.setState({
         ...initState,
         currentQuestionIndex: currentQuestionIndex + 1,
-        image: questions[currentQuestionIndex + 1].imageBefore
+        image: questions[currentQuestionIndex + 1].imageBefore,
+        imageText: questions[currentQuestionIndex + 1].imageTextBefore
       })
     }
   }
@@ -489,11 +490,11 @@ class Core extends Component {
            
            {!correctAnswer &&
       !incorrectAnswer &&
-              this.renderMessageforCorrectAnswer(question.imageBefore) 
+              this.renderMessageforCorrectAnswer(question.imageBefore, question.imageTextBefore) 
               }
               {
               this.renderImage() &&
-              this.renderText()
+              this.renderImageText()
             }
 
           </div>
