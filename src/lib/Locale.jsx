@@ -1,7 +1,7 @@
 export const defaultLocale =  {
     "landingHeaderText": "<questionLength> Questions",
     "question": "Question",
-    "startQuizBtn": "Start Quiz",
+    "startQuizBtn": "Start",
     "resultFilterAll": "All",
     "resultFilterCorrect": "Correct",
     "resultFilterIncorrect": "Incorrect",
