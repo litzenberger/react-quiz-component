@@ -494,7 +494,8 @@ class Core extends Component {
               this.renderMessageforCorrectAnswer(question.imageBefore, question.imageTextBefore) 
               }
               {
-              this.renderImage() &&
+              this.renderImage()}
+              {
               <div dangerouslySetInnerHTML={this.renderImageText()} />
               
             }
