@@ -238,7 +238,7 @@ class Core extends Component {
 
   renderMessageforCorrectAnswer = (image, text) => {
     if (this.state.image !== image){
-      console.log("test")
+      console.log(text)
       console.log(image)
     this.setState({image: `${image}`})
     this.setState({imageText: `${text}`})
@@ -421,6 +421,7 @@ class Core extends Component {
   }
   renderImageText(){
     let rawMarkup = marked(this.state.imageText, {sanitize: true});
+    console.log(rawMarkup)
     return { __html: rawMarkup };
     }
 
@@ -494,7 +495,8 @@ class Core extends Component {
               }
               {
               this.renderImage() &&
-              this.renderImageText()
+              <div dangerouslySetInnerHTML={this.renderImageText()} />
+              
             }
 
           </div>
