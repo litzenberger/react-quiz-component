@@ -30,9 +30,9 @@ class Core extends Component {
     };
   }
   checkAnswer = (index, correctAnswer, answerSelectionType, question) => {
-    console.log(image)
+    console.log(question)
     this.renderMessageforCorrectAnswer(question.imageAfter)
-    this.renderTextforCorrectAnswer(question.extAfter)  
+    this.renderTextforCorrectAnswer(question.imageTextAfter)  
     const { correct, incorrect, currentQuestionIndex, continueTillCorrect, userInput } = this.state;
     let { userAttempt, showNextQuestionButton } = this.state;
 
