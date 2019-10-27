@@ -2,7 +2,9 @@
     display: flex;
     justify-content: center;
     max-width:300px;
-    padding-left: 15%;
+    padding-left: 10%;
+    text-align: justify;
+    text-align-last: left;
 }
 
 .react-quiz-container .startQuizWrapper {
