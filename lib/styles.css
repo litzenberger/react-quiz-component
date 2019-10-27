@@ -1,6 +1,8 @@
 .react-quiz-container {
-  padding: 10px;
-  max-width: 300px;
+    height: 100vh; /* Magic here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .react-quiz-container .startQuizWrapper {
