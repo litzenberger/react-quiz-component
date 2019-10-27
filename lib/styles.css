@@ -1,6 +1,6 @@
 .react-quiz-container {
-  margin: 10px;
-  width: 300px;
+  padding: 10px;
+  max-width: 300px;
 }
 
 .react-quiz-container .startQuizWrapper {
