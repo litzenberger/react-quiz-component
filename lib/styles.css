@@ -1,12 +1,12 @@
 .react-quiz-container {
-    height: 100vh; /* Magic here */
     display: flex;
     justify-content: center;
-    align-items: center;
+    max-width:300px
 }
 
 .react-quiz-container .startQuizWrapper {
   margin-top: 10px;
+  max-width:300px;
 }
 
 .react-quiz-container .btn {
